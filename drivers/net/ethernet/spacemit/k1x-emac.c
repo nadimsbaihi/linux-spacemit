@@ -2578,9 +2578,6 @@ static int emac_config_dt(struct platform_device *pdev, struct emac_priv *priv)
 
 	ret = of_get_mac_address(np, mac_addr);
 	if (ret) {
-		if (ret == -EPROBE_DEFER)
-			return ret;
-
 		dev_info(&pdev->dev, "Using random mac address\n");
 		eth_hw_addr_random(priv->ndev);
 	} else {
